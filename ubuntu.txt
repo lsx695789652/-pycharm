@@ -1,0 +1,60 @@
+安装  docker    https://blog.csdn.net/fei2636/article/details/79384969
+docker stats --help  docker查看命令
+
+现在运行安装 Docker 的命令：
+sudo apt-get install -y docker.io
+等待安装完毕，现在我们使用下面的命令启动 Docker：
+systemctl start docker
+运行系统引导时启用 docker，命令：
+systemctl enable docker
+你可能想核对一下 docker 版本：
+docker version
+
+
+sudo groupadd docker     #添加docker用户组
+sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中
+newgrp docker     #更新用户组
+docker ps 
+
+cat /proc/version和ls分别查看当前系统的版本信息和当前目录下的文件列表
+
+docker search ubuntu查找
+docker pull ubuntu
+docker images
+
+docker create ubuntu:14.04 创建容器  
+docker run -i -t ubuntu:14.04 /bin/bash 启动
+
+docker run -d ubuntu:15.10 /bin/sh -c "while true; do echo hello world; sleep 1; done"
+docker run -i -t -d ubuntu:14.04 /bin/sh -c “while true; do echo hello world; sleep 1; done”
+docker logs 2b1b7a428627  访问容器id 或name
+
+docker logs -f bf08b7f2cd89
+
+
+docker stop amazing_cori  停止容器
+
+docker pull training/webapp 
+docker run -d -P training/webapp python app.py
+
+docker run -d -p 5000:5000 training/webapp python app.py 设置端口
+
+Exit  退出
+/home/sa/PycharmProjects/dj1/manage.py
+
+docker build -t friendlyhello . docker登录
+
+docker top 来查看容器内部运行的进程
+docker start 来启动。
+docker ps -l 查询最后一次创建的容器：
+docker inspect 来查看 Docker 的底层信息。它会返回一个 JSON 文件记录着 Docker 容器的配置和状态信息。
+docker rm 命令来删除不需要的容器
+
+docker port bf08b7f2cd89 或 docker port wizardly_chandrasekhar 来查看容器端口的映射情况。
+ifconfig -a
+uname -a 查看系统配置
+
+ docker search httpd 查看镜像
+
+cat Dockerfile 创建镜像之前
+docker build -t runoob/centos:6.7 .
